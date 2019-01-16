@@ -1,4 +1,6 @@
-class hashTbl {
+// Implement a simple hashmap class in Javascript
+
+class Hashmap {
   constructor(size=4) {
     this.keyMap = new Array(size);
   }
@@ -60,8 +62,8 @@ class hashTbl {
 
 }
 
-let hashTble = new hashTbl();
-hashTble._set('orange', 'sweet')
-hashTble._set('red', 'bad color')
-hashTble._set('cyan', 'ok color')
-hashTble._set('brown', 'cool')
+let hm = new Hashmap();
+hm._set('orange', 'sweet')
+hm._set('red', 'bad color')
+hm._set('cyan', 'ok color')
+hm._set('brown', 'cool')
