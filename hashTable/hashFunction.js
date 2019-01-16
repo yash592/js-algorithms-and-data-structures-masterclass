@@ -1,5 +1,5 @@
-class HashTable {
-  constructor(size=53) {
+class hashTbl {
+  constructor(size=4) {
     this.keyMap = new Array(size);
   }
 
@@ -23,26 +23,45 @@ class HashTable {
     if(!this.keyMap[index]) {
       this.keyMap[index] = [];
     }
-    this.keyMap.push([key, value])
+    this.keyMap[index].push([key, value])
   }
 
-  // get function
+//   get values
 
-  _get(key) {
-    let index = this._hash(key)
-    if(this.keyMap[index]) {
-      for(let i = 0; i < keyMap[index].length; i++) {
-        if(this.keyMap[index][i][0] === key) {
-          return this.keyMap[index][i][1]
+  values() {
+    let valuesArr=[];
+    for(let i = 0; i < this.keyMap.length; i++) {
+      if(this.keyMap[i]) {
+        for(let j = 0; j < this.keyMap[i].length; j++) {
+          if(valuesArr.includes(this.keyMap[i][j][1])) {
+            valuesArr.push(this.keyMap[i][j][1])
+          }
         }
       }
     }
-    return undefined
+    return valuesArr;
   }
+
+//   get keys
+
+  keys() {
+    let keysArr=[];
+    for(let i = 0; i < this.keyMap.length; i++) {
+      if(this.keyMap[i]) {
+        for(let j = 0; j < this.keyMap[i].length; j++) {
+          if(keysArr.includes(this.keyMap[i][j][0])) {
+            keysArr.push(this.keyMap[i][j][0])
+          }
+        }
+      }
+    }
+    return keysArr;
+  }
+
 }
 
-let ht = new HashTable();
-ht._set('orange', 'sweet')
-ht._set('red', 'bad color')
-ht._set('cyan', 'ok color')
-ht._set('brown', 'cool')
+let hashTble = new hashTbl();
+hashTble._set('orange', 'sweet')
+hashTble._set('red', 'bad color')
+hashTble._set('cyan', 'ok color')
+hashTble._set('brown', 'cool')
