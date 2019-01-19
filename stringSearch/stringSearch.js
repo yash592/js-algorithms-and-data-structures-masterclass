@@ -1,21 +1,16 @@
-
-
-function stringSearch(sent, str) {
+function stringSearch(sentence, term) {
   let count = 0;
-
-  for(let i = 0; i < sent.length; i++) {
-    for(let j = 0; j < str.length; j++) {
-      if(str[j] !== sent[i+j]) {
-        break;
-      }
-      if(j === str.length-1) {
-        count++
-      }
+  for(let i=0;i < sentence.length;  i++) {
+    for(let j = 0; j < term.length; j++) {
+      if(term[j] !== sentence[i+j]) break;
+      if(j === term.length-1) count++;
     }
-    // console.log( 'broke out');
   }
   return count
-
 }
 
 console.log(stringSearch('zomgwowzaomg', 'omg'))
+
+
+// zomgwowzaomg                 omg
+// .                            .
