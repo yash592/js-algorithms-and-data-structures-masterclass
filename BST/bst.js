@@ -132,6 +132,26 @@ class BinarySearchTree {
     traverse(this.root);
     return data;
   }
+
+  // Leetcode problems
+  sumRange(l, r) {
+    let data = [];
+
+    let traverse = node => {
+      if (node.val > l && node.val < r) data.push(node.val);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    };
+    traverse(this.root);
+    function sum(arr) {
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] != null) sum += arr[i];
+      }
+      return sum;
+    }
+    return sum(data);
+  }
 }
 
 var tree = new BinarySearchTree();

@@ -3,7 +3,7 @@ function toLowerCase(str) {
 
   for (var i in str) {
     let char = str.charCodeAt(i);
-    if (char >= 67 && char <= 90) {
+    if (char >= 65 && char <= 90) {
       res += String.fromCharCode(char + 32);
     } else {
       res += str[i];
