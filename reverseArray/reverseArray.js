@@ -5,7 +5,7 @@ const reverseArray = arr => {
   let e = arr.length - 1;
   console.log(s, e);
 
-  while (s < mid && e > mid) {
+  while (s < mid) {
     swap(arr, s, e);
     s++;
     e--;
