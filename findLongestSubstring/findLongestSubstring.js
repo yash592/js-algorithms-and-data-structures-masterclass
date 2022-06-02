@@ -25,6 +25,25 @@ const longestSubString = s => {
   return longest;
 };
 
+const longestSubStringOptimal = s => {
+  let left = 0;
+  let longest = 0;
+
+  let map = new Map();
+  for (let right = 0; right < s.length; right++) {
+    const element = s[right];
+
+    if (!map.has(element)) {
+      longest = Math.max(longest, right - left + 1);
+    } else {
+      let idx = map.get(element);
+      left = idx + 1;
+    }
+    map.set(element, right)
+  }
+  return longest;
+}
+
 
 // console.log(longestSubString("abcabcbb"));
 // console.log(longestSubString("thisisawesome")); //6 awesom
@@ -33,6 +52,9 @@ console.log(longestSubString("abcabcbb"));
 console.log(longestSubString("bbbbb"));
 console.log(longestSubString("au"));
 
-// t  h  i  s  i  s  a  w  e  s  o  m  e
 
-//
+console.log(longestSubStringOptimal("pwwkew"));
+console.log(longestSubStringOptimal("abcabcbb"));
+console.log(longestSubStringOptimal("bbbbb"));
+console.log(longestSubStringOptimal("tmmzuxt"))
+
